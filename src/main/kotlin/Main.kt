@@ -7,7 +7,7 @@ fun main() {
     val amountDay = 0
 
     if (validateCommission(paymentSystem, amountMonth, amount, amountDay))
-        println("Комиссия составит " + test(paymentSystem, amountMonth, amount))
+        println("Комиссия составит " + calculating(paymentSystem, amountMonth, amount))
 }
 
 fun validateCommission(paymentSystem: String, amountMonth: Int, amount: Int, amountDay: Int): Boolean {
@@ -18,10 +18,10 @@ fun validateCommission(paymentSystem: String, amountMonth: Int, amount: Int, amo
     return result
 }
 
-fun test(paymentSystem: String, amountMonth: Int, amount: Int) = when (paymentSystem) {
+fun calculating(paymentSystem: String, amountMonth: Int, amount: Int) = when (paymentSystem) {
     "Visa", "Mir" -> visaPay(amount)
     "Mastercard", "Maestro" -> masterPay(amountMonth, amount)
-    else -> 0
+    else -> 0.0
 }
 
 fun visaPay(amount: Int): Double {
